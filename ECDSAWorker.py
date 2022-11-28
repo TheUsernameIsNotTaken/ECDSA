@@ -32,4 +32,4 @@ class ECDSAWorker:
         u2=(r*w) % curve.n
         # Get P = u1*G + u2*B
         P = point_add(scalar_mult(u1, curve.g), scalar_mult(u2, pubkey))
-        return P[0] == (r % curve.n)
+        return P[0] % curve.n == r
